@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kids
+  labels:
+    app: kids
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kids
+  template:
+    metadata:
+      labels:
+        app: kids
+    spec:
+      containers:
+      - name: kids-backend
+        image: kids-backend:0.0.1
+        ports:
+        - containerPort: 3000
