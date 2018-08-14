@@ -1,15 +1,21 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Inject } from '@nestjs/common';
 import { Kid } from './interfaces/kid.interface';
+import { Model } from 'mongoose';
+import { CreateKidDto } from './dto/create-kid.dto';
 
 @Injectable()
 export class KidsService {
-  private readonly cats: Kid[] = [];
+  constructor(
+    @Inject('KidModelToken')
+    private readonly kidModel: Model<Kid>
+  ) {}
 
-  create(cat: Kid) {
-    this.cats.push(cat);
+  async create(createKidDto: CreateKidDto) {
+    const createdKid = new this.kidModel(createKidDto);
+    return await createdKid.save();
   }
 
-  findAll(): Kid[] {
-    return this.cats;
+  async findAll(): Promise<Kid[]> {
+    return await this.kidModel.find().exec()
   }
 }

@@ -1,4 +1,7 @@
-export interface Kid {
+
+import { Document } from 'mongoose';
+
+export interface Kid extends Document {
     readonly name: string;
     readonly age: number;
     readonly points: number;

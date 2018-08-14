@@ -15,7 +15,7 @@ export class KidsController {
 
     @Post()
     async create(@Body() createKidDto: CreateKidDto) {
-        this.kidsService.create(createKidDto)
+        this.kidsService.create(createKidDto);
     }
 
     @Patch(':id')
