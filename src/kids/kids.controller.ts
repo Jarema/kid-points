@@ -20,6 +20,6 @@ export class KidsController {
 
     @Patch(':id')
     async updatePoints(@Param('id') id, @Body() updateKidPointsDto: UpdateKidPoints) {
-        
+
     }
 }
