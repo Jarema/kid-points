@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose';
 import * as con from '../constants';
-
+console.log('URL:', con.MONGO_URL);
 export const databaseProviders = [
   {
     provide: 'DbConnectionToken',

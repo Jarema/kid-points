@@ -16,6 +16,13 @@ spec:
     spec:
       containers:
       - name: kids-backend
-        image: jarema/kids-backend:0.0.2
+        image: jarema/kids-backend:0.0.3
         ports:
         - containerPort: 3000
+        env:
+          - name: MONGO_URL
+            value: mongo-mongodb.default.svc.cluster.local
+          - name: MONGO_USER
+            value: kids
+          - name: MONGO_PASSWORD
+            value: kids
