@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: kids-backend
-        image: kids-backend:0.0.1
+        image: jarema/kids-backend:0.0.2
         ports:
         - containerPort: 3000
