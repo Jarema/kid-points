@@ -2,6 +2,7 @@ import { Injectable, Inject } from '@nestjs/common';
 import { Kid } from './interfaces/kid.interface';
 import { Model } from 'mongoose';
 import { CreateKidDto } from './dto/create-kid.dto';
+import { UpdateKidPointsDto } from './dto/update-kid-points.dto';
 
 @Injectable()
 export class KidsService {
@@ -21,5 +22,9 @@ export class KidsService {
 
   async delete(id: string) {
     return await this.kidModel.deleteOne(id)
+  }
+
+  async updatePoints(id: string, kid: UpdateKidPointsDto) {
+    return await this.kidModel.update({_id: id}, { $set: { points: kid.points } })
   }
 }

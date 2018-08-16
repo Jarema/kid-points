@@ -2,7 +2,7 @@ import { Get, Post, Patch, Controller, Delete, Param, Body } from '@nestjs/commo
 import { KidsService } from './kids.service';
 import { CreateKidDto } from './dto/create-kid.dto';
 import { Kid } from './interfaces/kid.interface';
-import { UpdateKidPoints } from './dto/update-kid-points.dto';
+import { UpdateKidPointsDto } from './dto/update-kid-points.dto';
 
 @Controller('kids')
 export class KidsController {
@@ -24,7 +24,7 @@ export class KidsController {
     }
 
     @Patch(':id')
-    async updatePoints(@Param('id') id, @Body() updateKidPointsDto: UpdateKidPoints) {
-
+    async updatePoints(@Param('id') id, @Body() updateKidPointsDto: UpdateKidPointsDto) {
+        this.kidsService.updatePoints(id, updateKidPointsDto)
     }
 }

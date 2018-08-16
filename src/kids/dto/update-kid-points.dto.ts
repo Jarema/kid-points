@@ -1,3 +1,3 @@
-export class UpdateKidPoints {
+export class UpdateKidPointsDto {
     readonly points: number
 }
