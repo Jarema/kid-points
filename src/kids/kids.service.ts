@@ -18,4 +18,8 @@ export class KidsService {
   async findAll(): Promise<Kid[]> {
     return await this.kidModel.find().exec()
   }
+
+  async delete(id: string) {
+    return await this.kidModel.deleteOne(id)
+  }
 }

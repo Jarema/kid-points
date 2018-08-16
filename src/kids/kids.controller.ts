@@ -1,4 +1,4 @@
-import { Get, Post, Patch, Controller, Param, Body } from '@nestjs/common';
+import { Get, Post, Patch, Controller, Delete, Param, Body } from '@nestjs/common';
 import { KidsService } from './kids.service';
 import { CreateKidDto } from './dto/create-kid.dto';
 import { Kid } from './interfaces/kid.interface';
@@ -16,6 +16,11 @@ export class KidsController {
     @Post()
     async create(@Body() createKidDto: CreateKidDto) {
         this.kidsService.create(createKidDto);
+    }
+
+    @Delete(':id')
+    async delete(@Param('id') id) {
+        return this.kidsService.delete(id)
     }
 
     @Patch(':id')
