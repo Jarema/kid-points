@@ -21,7 +21,7 @@ export class KidsService {
   }
 
   async delete(id: string) {
-    return await this.kidModel.deleteOne(id)
+    return await this.kidModel.deleteOne({_id: id})
   }
 
   async updatePoints(id: string, kid: UpdateKidPointsDto) {
