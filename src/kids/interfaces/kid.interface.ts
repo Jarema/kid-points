@@ -5,5 +5,5 @@ export interface Kid extends Document {
     readonly name: string;
     readonly age: number;
     readonly points: number;
-    readonly history: Array<number>;
+    readonly history: { reason: string, points: number }[];
 }

@@ -26,6 +26,11 @@ export class KidsService {
 
   async updatePoints(id: string, kid: UpdateKidPointsDto) {
     const kidToUpdate = await this.kidModel.findById(id);
-    return await this.kidModel.update({_id: id}, { $set: { points: kidToUpdate.points + kid.points } })
+    const historyElement = { reason: kid.reason, points: kid.points }
+    return await this.kidModel.update({_id: id}, 
+      { $set: { 
+        points: kidToUpdate.points + kid.points, 
+        history: kidToUpdate.history.push(historyElement) 
+      }});
   }
 }

@@ -4,5 +4,5 @@ export const KidSchema = new mongoose.Schema({
   name: String,
   age: Number,
   points: Number,
-  history: Array
+  history: [{reason: String, points: Number}]
 });
