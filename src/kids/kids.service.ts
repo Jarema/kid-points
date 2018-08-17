@@ -20,6 +20,10 @@ export class KidsService {
     return await this.kidModel.find().exec()
   }
 
+  async getOne(id: string): Promise<Kid> {
+    return await this.kidModel.findById(id)
+  }
+
   async delete(id: string) {
     return await this.kidModel.deleteOne({_id: id})
   }

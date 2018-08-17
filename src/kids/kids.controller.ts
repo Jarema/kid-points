@@ -13,6 +13,11 @@ export class KidsController {
         return this.kidsService.findAll();
     }
 
+    @Get(':id')
+    async getOne(@Param('id') id) {
+        return this.kidsService.getOne(id)
+    }
+
     @Post()
     async create(@Body() createKidDto: CreateKidDto) {
         this.kidsService.create(createKidDto);
